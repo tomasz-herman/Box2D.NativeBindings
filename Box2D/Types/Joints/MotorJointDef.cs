@@ -1,0 +1,24 @@
+using System.Numerics;
+using System.Runtime.InteropServices;
+using Box2D.Id;
+
+namespace Box2D.Types.Joints;
+
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct MotorJointDef
+{
+    public BodyId BodyIdA;
+    public BodyId BodyIdB;
+    public Vector2 LinearOffset;
+    public float AngularOffset;
+    public float MaxForce;
+    public float MaxTorque;
+    public float CorrectionFactor;
+    [MarshalAs(UnmanagedType.U1)]
+    public bool CollideConnected;
+    public void* UserData;
+    public int InternalValue;
+
+    [DllImport("box2d", EntryPoint = "b2DefaultMotorJointDef")]
+    public static extern MotorJointDef Default();
+}

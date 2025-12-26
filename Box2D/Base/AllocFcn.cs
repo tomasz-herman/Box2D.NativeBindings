@@ -1,0 +1,12 @@
+namespace Box2D.Base;
+
+public unsafe struct AllocFcn(delegate*<uint, int, void*> ptr)
+{
+    private readonly delegate*<uint, int, void*> _ptr = ptr;
+
+    public static implicit operator AllocFcn(delegate*<uint, int, void*> ptr) => new AllocFcn(ptr);
+
+    public static implicit operator delegate*<uint, int, void*>(AllocFcn fcn) => fcn._ptr;
+    
+    public void* Invoke(uint size, int alignment) => _ptr(size, alignment);
+}

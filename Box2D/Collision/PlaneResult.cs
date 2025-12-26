@@ -1,0 +1,13 @@
+using System.Numerics;
+using System.Runtime.InteropServices;
+using Plane = Box2D.Math.Plane;
+
+namespace Box2D.Collision;
+
+public struct PlaneResult
+{
+    public Plane Plane;
+    public Vector2 Point;
+    [MarshalAs(UnmanagedType.U1)]
+    public bool Hit;
+}
