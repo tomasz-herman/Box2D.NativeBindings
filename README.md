@@ -1,30 +1,31 @@
-# Box2DSharp
+# Box2D.NativeBindings
 
-A high-performance .NET 8 wrapper for the [Box2D](https://box2d.org/) physics engine (v3).
+A high-performance .NET 8, 9, and 10 wrapper for the [Box2D](https://box2d.org/) physics engine (v3).
 
-Box2DSharp provides direct C# bindings to the modern Box2D C API, utilizing the new Handle/ID-based architecture (`WorldId`, `BodyId`, `ShapeId`) for improved performance and memory management.
+Box2D.NativeBindings provides direct C# bindings to the modern Box2D C API, utilizing the new Handle/ID-based architecture (`WorldId`, `BodyId`, `ShapeId`) for improved performance and memory management.
 
 ## Features
 
 *   **Box2D v3 API:** targets the latest iteration of Box2D with the new C-style API.
 *   **High Performance:** Uses `unsafe` code and P/Invoke with minimal overhead.
 *   **Zero-Allocation:** Heavy usage of `ref` structs and stack allocation to minimize GC pressure.
-*   **Modern .NET:** Built for .NET 8.0+.
+*   **Modern .NET:** Built for .NET 8, 9, and 10.
+*   **NuGet Package:** easy installation via `Box2D.NativeBindings`.
+*   **Cross-Platform:** Includes native binaries for Windows, Linux, and macOS (x64).
 
 ## Prerequisites
 
-*   [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
-*   **Box2D Native Library:** You must provide the compiled `box2d` shared library (`box2d.dll`, `libbox2d.so`, or `libbox2d.dylib`) accessible in your runtime path (e.g., copied to the output directory).
+*   .NET 8.0 SDK or newer.
 
 ## Getting Started
 
 ### Installation
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/Box2DSharp.git
-    ```
-2.  Ensure you have the native Box2D binary available.
+Install the package via NuGet:
+
+```bash
+dotnet add package Box2D.NativeBindings
+```
 
 ### Basic Usage
 
@@ -87,8 +88,6 @@ A sample project is provided in `Box2D.Demo`.
 ```bash
 dotnet run --project Box2D.Demo
 ```
-
-*Note: The demo will fail if the native `box2d` library is not found in the output directory.*
 
 ## Architecture
 
